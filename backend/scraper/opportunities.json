@@ -1,0 +1,91 @@
+[
+  {
+    "id": "f70d37d0-97f0-4e3b-81f6-6f90d4185bbb",
+    "schoolAbbr": "MIT",
+    "schoolName": "Massachusetts Institute of Technology",
+    "programName": "MSRP - MIT Summer Research Program",
+    "location": "Cambridge, MA, USA",
+    "description": "The MIT Summer Research Program (MSRP) seeks to promote the value of graduate education, to improve the research enterprise...",
+    "websiteUrl": "https://odge.mit.edu/undergraduate/msrp/",
+    "deadline": "2026-03-09T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "Engineering",
+      "Sciences"
+    ]
+  },
+  {
+    "id": "cc843590-ce90-477b-bce8-b9969ec72788",
+    "schoolAbbr": "STFD",
+    "schoolName": "Stanford University",
+    "programName": "SURF - Summer Undergraduate Research Fellowship",
+    "location": "Stanford, CA, USA",
+    "description": "SURF is a fully funded, eight-week summer residential program that brings 30 talented and motivated undergraduates...",
+    "websiteUrl": "https://engineering.stanford.edu/students/programs/summer-undergraduate-research-fellowship-surf",
+    "deadline": "2026-03-04T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "Engineering"
+    ]
+  },
+  {
+    "id": "97e770d7-62a7-441c-9a81-759986472863",
+    "schoolAbbr": "CMU",
+    "schoolName": "Carnegie Mellon University",
+    "programName": "Robotics Institute Summer Scholars (RISS)",
+    "location": "Pittsburgh, PA, USA",
+    "description": "RISS is an intensive eleven-week summer undergraduate research program that immerses diverse cohorts of students...",
+    "websiteUrl": "https://riss.ri.cmu.edu/",
+    "deadline": "2026-03-19T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "Robotics",
+      "AI"
+    ]
+  },
+  {
+    "id": "cb1ab686-8611-470f-9434-0ecde00546c3",
+    "schoolAbbr": "ETHZ",
+    "schoolName": "ETH Zurich",
+    "programName": "Student Summer Research Fellowship",
+    "location": "Zurich, Switzerland",
+    "description": "The Computer Science Department at ETH offers a new and exciting program that allows undergraduate and graduate students to obtain research experience...",
+    "websiteUrl": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
+    "deadline": "2026-04-08T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "CS",
+      "Europe"
+    ]
+  },
+  {
+    "id": "ab1bd61c-9b64-4880-9ea9-51b9ad83bf4a",
+    "schoolAbbr": "EPFL",
+    "schoolName": "EPFL",
+    "programName": "Summer in the Lab",
+    "location": "Lausanne, Switzerland",
+    "description": "A 2 to 3-month paid summer internship for bachelor and master students in one of the School of Computer and Communication Sciences (IC).",
+    "websiteUrl": "https://www.epfl.ch/schools/ic/education/summer-in-the-lab/",
+    "deadline": "2026-03-24T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "CS",
+      "Europe"
+    ]
+  },
+  {
+    "id": "3c3b0d88-968c-4cb2-888c-cc4a82137aac",
+    "schoolAbbr": "UCB",
+    "schoolName": "UC Berkeley",
+    "programName": "Amgen Scholars Program",
+    "location": "Berkeley, CA, USA",
+    "description": "An undergraduate summer research program in science and biotechnology.",
+    "websiteUrl": "https://amgenscholars.berkeley.edu/",
+    "deadline": "2026-02-27T10:55:58.513650",
+    "tags": [
+      "Summer Research",
+      "Biology",
+      "Biotech"
+    ]
+  }
+]
