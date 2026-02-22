@@ -26,12 +26,15 @@ def parse_unstructured_text(raw_text: str) -> dict | None:
     and uses an LLM to extract and standardize it into our strict JSON format.
     """
     
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("DEEPSEEK_API_KEY")
     if not api_key:
-        print("⚠️ OPENAI_API_KEY not found in environment. Skipping LLM extraction.")
+        print("⚠️ DEEPSEEK_API_KEY not found in environment. Skipping LLM extraction.")
         return None
         
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(
+        api_key=api_key,
+        base_url="https://api.deepseek.com/v1" # or the specific base URL Deepseek provides
+    )
     
     system_prompt = """
     You are an expert data extraction assistant for a university application tracking app.
@@ -41,19 +44,28 @@ def parse_unstructured_text(raw_text: str) -> dict | None:
     """
     
     try:
-        completion = client.beta.chat.completions.parse(
-            model="gpt-4o-mini",
+        # DeepSeek provides compatible completion endpoints, but they may not fully support structured outputs via `.parse()` yet, 
+        # so you might need to use standard JSON mode depending on the DeepSeek model version (e.g., deepseek-chat).
+        # We will keep the structured output format here as DeepSeek moves toward OpenAI API compatibility.
+        completion = client.chat.completions.create(
+            model="deepseek-chat",
             messages=[
-                {"role": "system", "content": system_prompt},
+                {"role": "system", "content": system_prompt + "\nPlease output ONLY valid JSON matching the schema."},
                 {"role": "user", "content": f"Extract the opportunity data from this text:\n\n{raw_text}"}
             ],
-            response_format=OpportunitySchema,
+            response_format={"type": "json_object"},
+            temperature=0.1
         )
         
-        parsed_data = completion.choices[0].message.parsed
+        # DeepSeek currently requires manual parsing of the JSON string
+        raw_json_str = completion.choices[0].message.content
+        parsed_dict = json.loads(raw_json_str)
+        
+        # Validate against our Pydantic schema
+        validated_data = OpportunitySchema(**parsed_dict)
         
         # Convert Pydantic model back to a dictionary and append our UUID
-        opportunity_dict = parsed_data.model_dump()
+        opportunity_dict = validated_data.model_dump()
         opportunity_dict["id"] = str(uuid.uuid4())
         
         # Map the 'deadline_iso' key back to exactly 'deadline' for the iOS App

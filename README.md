@@ -64,14 +64,14 @@ We built a totally free, serverless backend that automatically scrapes unstructu
 
 If you haven't already, push this entire `GlobeScholar` folder to a GitHub repository.
 
-### 2. Add OpenAI API Key
+### 2. Add DeepSeek API Key
 
 To let the Python cleaner intelligently parse unstructured text (like Reddit posts or raw HTML):
 
 1. Go to your GitHub Repository -> **Settings** -> **Secrets and variables** -> **Actions**.
 2. Click **New repository secret**.
-3. Name: `OPENAI_API_KEY`.
-4. Value: Paste your actual OpenAI API secret key.
+3. Name: `DEEPSEEK_API_KEY`.
+4. Value: Paste your actual DeepSeek API secret key.
 
 ### 3. Activate the Action
 
