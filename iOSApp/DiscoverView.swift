@@ -76,6 +76,12 @@ struct DiscoverView: View {
             .navigationTitle("Discover")
             .searchable(text: $searchText, prompt: "Search schools, programs...")
             .disableAutocorrection(true)
+            .refreshable {
+                // Trigger manual pull-to-refresh
+                // HIG: Give a haptic feedback when pull to refresh is triggered
+                HapticManager.shared.impact(style: .light)
+                await NetworkManager.shared.fetchAndSync(context: modelContext)
+            }
         }
     }
 }

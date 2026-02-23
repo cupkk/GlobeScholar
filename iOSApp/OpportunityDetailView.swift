@@ -23,9 +23,30 @@ struct OpportunityDetailView: View {
                         Circle()
                             .fill(Color(uiColor: .systemGray5))
                             .frame(width: 64, height: 64)
-                        Image(systemName: "graduationcap")
-                            .font(.title)
-                            .foregroundColor(Color.brandNavyAlias)
+                            
+                        if !opportunity.imageUrl.isEmpty, let url = URL(string: opportunity.imageUrl) {
+                            AsyncImage(url: url) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                case .success(let image):
+                                    image.resizable()
+                                         .scaledToFit()
+                                         .frame(width: 48, height: 48)
+                                         .clipShape(Circle())
+                                case .failure:
+                                    Image(systemName: "graduationcap")
+                                        .font(.title)
+                                        .foregroundColor(Color.brandNavyAlias)
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+                        } else {
+                            Image(systemName: "graduationcap")
+                                .font(.title)
+                                .foregroundColor(Color.brandNavyAlias)
+                        }
                     }
                     
                     VStack(alignment: .leading, spacing: 4) {

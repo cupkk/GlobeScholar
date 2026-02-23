@@ -17,12 +17,13 @@ final class OpportunityItem {
     var status: String
     var location: String
     var websiteUrl: String // Added for remote JSON and in-app browser
+    var imageUrl: String // Added for remote hosted images
     
     // Relationship: Whether user has saved this
     var isSaved: Bool
     var dateSaved: Date?
 
-    init(id: UUID = UUID(), schoolName: String, schoolAbbr: String, isOfficial: Bool, programName: String, programDescription: String, tags: [String], deadline: Date, status: String, location: String, websiteUrl: String = "https://www.university.edu", isSaved: Bool = false, dateSaved: Date? = nil) {
+    init(id: UUID = UUID(), schoolName: String, schoolAbbr: String, isOfficial: Bool, programName: String, programDescription: String, tags: [String], deadline: Date, status: String, location: String, websiteUrl: String = "https://www.university.edu", imageUrl: String = "", isSaved: Bool = false, dateSaved: Date? = nil) {
         self.id = id
         self.schoolName = schoolName
         self.schoolAbbr = schoolAbbr
@@ -34,6 +35,7 @@ final class OpportunityItem {
         self.status = status
         self.location = location
         self.websiteUrl = websiteUrl
+        self.imageUrl = imageUrl
         self.isSaved = isSaved
         self.dateSaved = dateSaved
     }

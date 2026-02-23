@@ -22,6 +22,7 @@ def generate_mock_scraped_data():
             "location": "Cambridge, MA, USA",
             "description": "The MIT Summer Research Program (MSRP) seeks to promote the value of graduate education, to improve the research enterprise...",
             "websiteUrl": "https://odge.mit.edu/undergraduate/msrp/",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/512px-MIT_logo.svg.png",
             "tags": ["Summer Research", "Engineering", "Sciences"],
             "deadline_offset_days": 15
         },
@@ -32,6 +33,7 @@ def generate_mock_scraped_data():
             "location": "Stanford, CA, USA",
             "description": "SURF is a fully funded, eight-week summer residential program that brings 30 talented and motivated undergraduates...",
             "websiteUrl": "https://engineering.stanford.edu/students/programs/summer-undergraduate-research-fellowship-surf",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg",
             "tags": ["Summer Research", "Engineering"],
             "deadline_offset_days": 10
         },
@@ -42,6 +44,7 @@ def generate_mock_scraped_data():
             "location": "Pittsburgh, PA, USA",
             "description": "RISS is an intensive eleven-week summer undergraduate research program that immerses diverse cohorts of students...",
             "websiteUrl": "https://riss.ri.cmu.edu/",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Carnegie_Mellon_University_seal.svg/512px-Carnegie_Mellon_University_seal.svg.png",
             "tags": ["Summer Research", "Robotics", "AI"],
             "deadline_offset_days": 25
         },
@@ -52,6 +55,7 @@ def generate_mock_scraped_data():
             "location": "Zurich, Switzerland",
             "description": "The Computer Science Department at ETH offers a new and exciting program that allows undergraduate and graduate students to obtain research experience...",
             "websiteUrl": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/ETH_Zurich_Logo_black.svg",
             "tags": ["Summer Research", "CS", "Europe"],
             "deadline_offset_days": 45
         },
@@ -62,6 +66,7 @@ def generate_mock_scraped_data():
             "location": "Lausanne, Switzerland",
             "description": "A 2 to 3-month paid summer internship for bachelor and master students in one of the School of Computer and Communication Sciences (IC).",
             "websiteUrl": "https://www.epfl.ch/schools/ic/education/summer-in-the-lab/",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/EPFL_Logo.svg/512px-EPFL_Logo.svg.png",
             "tags": ["Summer Research", "CS", "Europe"],
             "deadline_offset_days": 30
         },
@@ -72,6 +77,7 @@ def generate_mock_scraped_data():
             "location": "Berkeley, CA, USA",
             "description": "An undergraduate summer research program in science and biotechnology.",
             "websiteUrl": "https://amgenscholars.berkeley.edu/",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Seal_of_University_of_California%2C_Berkeley.svg/512px-Seal_of_University_of_California%2C_Berkeley.svg.png",
             "tags": ["Summer Research", "Biology", "Biotech"],
             "deadline_offset_days": 5
         }
@@ -80,7 +86,7 @@ def generate_mock_scraped_data():
     # --- ADVANCED AI PIPELINE PATH ---
     # Here we simulate fetching unstructured data from elsewhere (like a forum post)
     # and feeding it into our OpenAI cleaner to enforce standard JSON.
-    from cleaner import parse_unstructured_text
+    from cleaner import parse_unstructured_text # type: ignore
     import time
     
     sample_raw_post = """
@@ -101,7 +107,9 @@ def generate_mock_scraped_data():
     # Process the legacy hardcoded ones
     for item in raw_opportunities:
         # Calculate dynamic deadline based on current execution time
-        deadline_date = datetime.now() + timedelta(days=item['deadline_offset_days'])
+        # Explicitly cast to float to satisfy static type checkers that infer dict values as Unions
+        offset_days: float = float(str(item.get('deadline_offset_days', 0)))
+        deadline_date = datetime.now() + timedelta(days=offset_days)
         
         # Build the exact JSON schema that the iOS SwiftData model expects
         formatted_item = {
@@ -112,6 +120,7 @@ def generate_mock_scraped_data():
             "location": item["location"],
             "description": item["description"],
             "websiteUrl": item["websiteUrl"],
+            "imageUrl": item.get("imageUrl", ""),
             "deadline": deadline_date.isoformat(), # ISO8601 string for Swift's JSONDecoder
             "tags": item["tags"]
         }

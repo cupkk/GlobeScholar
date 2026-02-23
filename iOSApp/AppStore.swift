@@ -11,6 +11,9 @@ final class AppStore {
     var toastMessage: String = ""
     var toastIcon: String = "checkmark.circle.fill"
     
+    // Global Loading State for initial fetch
+    var isLoading: Bool = true
+    
     // Function to trigger global toast
     func showToast(message: String, icon: String = "checkmark.circle.fill") {
         self.toastMessage = message

@@ -49,6 +49,11 @@ struct GlobeScholarApp: App {
                     .task {
                         // 3. Trigger remote data sync on app launch
                         await NetworkManager.shared.fetchAndSync(context: sharedModelContainer.mainContext)
+                        
+                        // Dismiss loading screen with animation after fetch completes
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            store.isLoading = false
+                        }
                     }
                 
                 // Global Toast Overlay
@@ -71,6 +76,33 @@ struct GlobeScholarApp: App {
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                     }
                     .zIndex(100)
+                }
+                
+                // Full Screen Loading Overlay
+                if store.isLoading {
+                    VStack(spacing: 24) {
+                        Image(systemName: "globe.americas.fill")
+                            .font(.system(size: 80))
+                            .foregroundColor(Color.brandNavyAlias)
+                            .symbolEffect(.pulse) // Native iOS 17 animated symbol
+                        
+                        Text("GlobeScholar")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(Color.brandNavyAlias)
+                        
+                        Text("Discovering new opportunities...")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            
+                        ProgressView()
+                            .padding(.top, 20)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color(uiColor: .systemBackground))
+                    .edgesIgnoringSafeArea(.all)
+                    .zIndex(200)
+                    .transition(.opacity)
                 }
             }
         }

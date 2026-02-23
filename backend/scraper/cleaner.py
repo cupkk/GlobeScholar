@@ -2,9 +2,10 @@ import os
 import json
 import uuid
 import datetime
-from pydantic import BaseModel, Field
-from openai import OpenAI
-from dotenv import load_dotenv
+import requests # type: ignore
+from pydantic import BaseModel, Field # type: ignore
+from openai import OpenAI # type: ignore
+from dotenv import load_dotenv # type: ignore
 
 load_dotenv()
 
@@ -17,8 +18,25 @@ class OpportunitySchema(BaseModel):
     location: str = Field(description="City and Country where the program takes place.")
     description: str = Field(description="A concise 1-2 sentence overview of the program.")
     websiteUrl: str = Field(description="The official URL to apply or learn more.")
+    imageUrl: str = Field(description="URL to the university seal, lab logo, or relevant promotional banner image. If none found, provide an empty string.", default="")
     tags: list[str] = Field(description="Array of 2-3 short tags, e.g., ['Summer Research', 'CS']")
     deadline_iso: str = Field(description="The application deadline in strict ISO8601 format (e.g., '2027-02-15T23:59:59Z'). If no exact time, assume 23:59:59Z. If no exact year, infer from context or use next year.")
+
+def trigger_alert(message: str):
+    """
+    Sends a webhook alert to a configured service (Slack/DingTalk/Feishu)
+    if the WEBHOOK_URL environment variable is set.
+    """
+    webhook_url = os.getenv("WEBHOOK_URL")
+    if not webhook_url:
+        return
+        
+    try:
+        # Assuming a generic JSON payload structure compatible with Slack/Discord
+        payload = {"text": f"🚨 GlobeScholar Scraper Alert: {message}"}
+        requests.post(webhook_url, json=payload, timeout=5)
+    except Exception as e:
+        print(f"Failed to send webhook alert: {e}")
 
 def parse_unstructured_text(raw_text: str) -> dict | None:
     """
@@ -74,7 +92,9 @@ def parse_unstructured_text(raw_text: str) -> dict | None:
         return opportunity_dict
         
     except Exception as e:
-        print(f"❌ Error during LLM extraction: {e}")
+        error_msg = f"Error during LLM extraction: {e}"
+        print(f"❌ {error_msg}")
+        trigger_alert(error_msg)
         return None
 
 # --- Example Usage for Testing ---
