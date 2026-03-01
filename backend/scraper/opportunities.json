@@ -1,6 +1,6 @@
 [
   {
-    "id": "757cb563-0388-44de-8dcc-cd61f6680bb3",
+    "id": "1f2c2efb-b3ce-4799-bf70-89e8885f0587",
     "schoolAbbr": "MIT",
     "schoolName": "Massachusetts Institute of Technology",
     "programName": "MSRP - MIT Summer Research Program",
@@ -8,7 +8,7 @@
     "description": "The MIT Summer Research Program (MSRP) seeks to promote the value of graduate education, to improve the research enterprise...",
     "websiteUrl": "https://odge.mit.edu/undergraduate/msrp/",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/512px-MIT_logo.svg.png",
-    "deadline": "2026-03-15T03:45:24.900287",
+    "deadline": "2026-03-16T04:12:39.105605",
     "tags": [
       "Summer Research",
       "Engineering",
@@ -16,7 +16,7 @@
     ]
   },
   {
-    "id": "158668cb-bf58-4c00-97b9-5b2068b43f5b",
+    "id": "08619ca5-b4e3-4568-b0df-36a82cc046b9",
     "schoolAbbr": "STFD",
     "schoolName": "Stanford University",
     "programName": "SURF - Summer Undergraduate Research Fellowship",
@@ -24,14 +24,14 @@
     "description": "SURF is a fully funded, eight-week summer residential program that brings 30 talented and motivated undergraduates...",
     "websiteUrl": "https://engineering.stanford.edu/students/programs/summer-undergraduate-research-fellowship-surf",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg",
-    "deadline": "2026-03-10T03:45:24.900323",
+    "deadline": "2026-03-11T04:12:39.105639",
     "tags": [
       "Summer Research",
       "Engineering"
     ]
   },
   {
-    "id": "ff3122ef-07de-4bc8-bd9b-9830b2a5c6cc",
+    "id": "d917d9fd-75b7-4e31-b3fa-1ca7311ba0c6",
     "schoolAbbr": "CMU",
     "schoolName": "Carnegie Mellon University",
     "programName": "Robotics Institute Summer Scholars (RISS)",
@@ -39,7 +39,7 @@
     "description": "RISS is an intensive eleven-week summer undergraduate research program that immerses diverse cohorts of students...",
     "websiteUrl": "https://riss.ri.cmu.edu/",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Carnegie_Mellon_University_seal.svg/512px-Carnegie_Mellon_University_seal.svg.png",
-    "deadline": "2026-03-25T03:45:24.900334",
+    "deadline": "2026-03-26T04:12:39.105651",
     "tags": [
       "Summer Research",
       "Robotics",
@@ -47,7 +47,7 @@
     ]
   },
   {
-    "id": "8ea10705-7ff1-4940-afba-0fe7230ae7a3",
+    "id": "5ac16cae-a566-4a77-b582-ce76966d4e2f",
     "schoolAbbr": "ETHZ",
     "schoolName": "ETH Zurich",
     "programName": "Student Summer Research Fellowship",
@@ -55,7 +55,7 @@
     "description": "The Computer Science Department at ETH offers a new and exciting program that allows undergraduate and graduate students to obtain research experience...",
     "websiteUrl": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/ETH_Zurich_Logo_black.svg",
-    "deadline": "2026-04-14T03:45:24.900343",
+    "deadline": "2026-04-15T04:12:39.105659",
     "tags": [
       "Summer Research",
       "CS",
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "id": "e819c027-2c81-49b0-8fc8-0df95a87032e",
+    "id": "f8e514b5-8350-4288-ab36-98ec8eff1cb9",
     "schoolAbbr": "EPFL",
     "schoolName": "EPFL",
     "programName": "Summer in the Lab",
@@ -71,7 +71,7 @@
     "description": "A 2 to 3-month paid summer internship for bachelor and master students in one of the School of Computer and Communication Sciences (IC).",
     "websiteUrl": "https://www.epfl.ch/schools/ic/education/summer-in-the-lab/",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/EPFL_Logo.svg/512px-EPFL_Logo.svg.png",
-    "deadline": "2026-03-30T03:45:24.900356",
+    "deadline": "2026-03-31T04:12:39.105672",
     "tags": [
       "Summer Research",
       "CS",
@@ -79,7 +79,7 @@
     ]
   },
   {
-    "id": "1056527b-0d17-418a-bf0b-dbdd7af1c7cc",
+    "id": "33eedcba-184f-47f4-b62b-11d61045e4b7",
     "schoolAbbr": "UCB",
     "schoolName": "UC Berkeley",
     "programName": "Amgen Scholars Program",
@@ -87,7 +87,7 @@
     "description": "An undergraduate summer research program in science and biotechnology.",
     "websiteUrl": "https://amgenscholars.berkeley.edu/",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Seal_of_University_of_California%2C_Berkeley.svg/512px-Seal_of_University_of_California%2C_Berkeley.svg.png",
-    "deadline": "2026-03-05T03:45:24.900364",
+    "deadline": "2026-03-06T04:12:39.105680",
     "tags": [
       "Summer Research",
       "Biology",
