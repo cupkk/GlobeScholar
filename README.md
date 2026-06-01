@@ -92,4 +92,15 @@ Once the Action runs successfully, it commits `opportunities.json` to the repo.
 
 ---
 
+## Open Source Maintenance
+
+This repository is maintained as an open-source iOS app and serverless data-pipeline project for academic opportunity discovery. See:
+
+- [Open Source Maintenance](docs/OPEN_SOURCE_MAINTENANCE.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
+- [MIT License](LICENSE)
+
+---
+
 Enjoy building GlobeScholar! 🌍🎓
